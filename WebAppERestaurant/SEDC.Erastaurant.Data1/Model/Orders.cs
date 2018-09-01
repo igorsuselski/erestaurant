@@ -12,10 +12,10 @@ namespace SEDC.ERestaurant.Data.Model
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(200)]
+        [MaxLength(3)]
         public int Table { get; set; }
 
-        
+        [Required]
         public byte StatusId { get; set; }
 
         public string Comments { get; set; }
@@ -29,12 +29,8 @@ namespace SEDC.ERestaurant.Data.Model
         public int? TotalQuantity => ListOrderItems?.Sum(loi => loi.Quantity);
 
 
-        public double? TotalCoast => ListOrderItems?.Sum(loi => loi.Quantity  * loi.Item.Prize); 
-      
-       
-       
-        
-    }
+        public double? TotalCoast => ListOrderItems?.Sum(loi => loi.Quantity * loi.Item.Prize);
 
+    }
     
 }
